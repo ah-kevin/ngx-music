@@ -11,6 +11,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
 import { CustomRouterStateSerializer } from './shared/router';
+import { CoreModule } from './core/core.module';
 
 
 @NgModule({
@@ -29,7 +30,9 @@ import { CustomRouterStateSerializer } from './shared/router';
       name: 'ngx-music Store DevTools',
       logOnly: environment.production
     }),
-    EffectsModule.forRoot([])
+    EffectsModule.forRoot([]),
+    /*music*/
+    CoreModule.forRoot()
   ],
   providers: [
     {provide: RouterStateSerializer, useClass: CustomRouterStateSerializer},
